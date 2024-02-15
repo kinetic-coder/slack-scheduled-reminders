@@ -13,17 +13,17 @@ def main():
 
     current_folder = os.path.dirname(os.path.abspath(__file__))
 
-    slack_secrets_file = current_folder + "\\secret\\slack_token.txt"
-    confluence_secrets_file = current_folder + "\\secret\\confluence_token.txt"
-    confluence_link_file = current_folder + "\\secret\\confluence_link.txt"
-    confluence_page = current_folder + "\\secret\\confluence_page.txt"
+    slack_secrets_file = current_folder + "/secret/slack_token.txt"
+    confluence_secrets_file = current_folder + "/secret/confluence_token.txt"
+    confluence_link_file = current_folder + "/secret/confluence_link.txt"
+    confluence_page = current_folder + "/secret/confluence_page.txt"
 
     slack_token = Utilities.File.read_single_line(slack_secrets_file, 1)
     confluence_token = Utilities.File.read_single_line(confluence_secrets_file, 1)
     confluence_link = Utilities.File.read_single_line(confluence_link_file, 1)
     confluence_page = Utilities.File.read_single_line(confluence_page, 1)
 
-    Settings.initialise(current_folder + "\\secret\\configuration.json")
+    Settings.initialise(current_folder + "/secret/configuration.json")
 
     duty_staff_message = Confluence.get_this_weeks_duty_staff(confluence_link, confluence_token, confluence_page)
 
