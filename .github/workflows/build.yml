@@ -19,6 +19,14 @@ jobs:
           python-version: ${{ matrix.python }}
       - name: Install tox and any other packages
         run: pip install tox
+      - name: Install pytest
+        run: pip install pytest
+      - name: Install slack_sdk
+        run: pip install slack_sdk
+      - name: Install BeautifulSoup4
+        run: pip install BeautifulSoup4
+      - name: Install atlassian-python-api
+        run: pip install atlassian-python-api
       - name: Run tox
         run: tox -e py
       - name: SonarCloud Scan
