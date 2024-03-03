@@ -4,11 +4,15 @@ Used to create messages on Slack that read information that is included in the m
 # Setup
 This application uses Python 3. To install the libraries make sure that you have got PIPS Installs Package to install the required packages required to run this application.
 
+If you do not have PIP, use the following call to install PIP...
+
+sudo apt-get install python-pip
+
 The required packages are as follows:
 
-pip install slack_sdk
-pip install BeautifulSoup4
-pip install atlassian-python-api
+* pip install slack_sdk
+* pip install BeautifulSoup4
+* pip install atlassian-python-api
 
 
 # Code Quality
