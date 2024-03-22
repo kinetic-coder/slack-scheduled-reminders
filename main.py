@@ -1,3 +1,4 @@
+import argparse
 import slack_sdk
 import Utilities.File
 import os
@@ -10,6 +11,10 @@ def post_message_to_slack(token, channel, message):
     return response
 
 def main():
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--channel", default="#test_cm_app")
+    args = parser.parse_args()
 
     current_folder = os.path.dirname(os.path.abspath(__file__))
 
@@ -27,9 +32,8 @@ def main():
 
     duty_staff_message = Confluence.get_this_weeks_duty_staff(confluence_link, confluence_token, confluence_page)
 
-    channel = "#test_cm_app"
     # channel = "#sbc_clientmanagement_app"
-    response = post_message_to_slack(slack_token, channel, duty_staff_message)
+    response = post_message_to_slack(slack_token, args.channel, duty_staff_message)
     
     print(duty_staff_message)
 
